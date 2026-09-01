@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/vortiz2107/restaurant-backend/issues"
   },
-  "homepage": "https://github.com/vortiz2107/restaurant-backend#readme"
+  "homepage": "https://github.com/vortiz2107/restaurant-backend#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
 }
