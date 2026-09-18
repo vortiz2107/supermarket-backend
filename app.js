@@ -1,5 +1,5 @@
 const express = require('express')
-const sequelize = require('./src/config/database')
+const DatabaseSync = require('./src/config/sync')   
 const app = express()
 const PORT = 3000
 
@@ -9,15 +9,20 @@ app.get('/', (req, res) => {
     res.send('Server is running successfully')
 })
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`)
-})
 
-sequelize.authenticate()
-    .then(() => {
-        console.log('Database connection established successfully.')
-    })
-    .catch((error) => {
-        console.error('Unable to connect to the database:', error)
-    })
-    
+
+async function startServer() {
+    try {
+        await DatabaseSync.sync()
+
+
+        app.listen(PORT, () => {
+            console.log(`Server is running on http://localhost:${PORT}`)
+        })
+        
+    } catch (error) {
+        console.log('Error starting the server:', error);
+    }
+}
+
+startServer()

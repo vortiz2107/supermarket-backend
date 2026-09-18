@@ -1,4 +1,4 @@
-const {dataTypes} = require('sequelize');
+const {DataTypes} = require('sequelize');
 const sequelize = require('../config/database');
 
 const Product = sequelize.define('product', {
@@ -44,7 +44,7 @@ const Product = sequelize.define('product', {
         }
     }
 }, {
-    tableName: 'user',
+    tableName: 'product',
     timestamps: true,
     paranoid: true
 });
